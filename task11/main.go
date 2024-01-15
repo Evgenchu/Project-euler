@@ -19,7 +19,6 @@ func findGreatestProduct(grid [][]int) int {
 	cols := len(grid[0])
 	maxProduct := 0
 
-	// Check horizontally
 	for i := 0; i < rows; i++ {
 		for j := 0; j <= cols-4; j++ {
 			product := grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
@@ -27,7 +26,6 @@ func findGreatestProduct(grid [][]int) int {
 		}
 	}
 
-	// Check vertically
 	for i := 0; i <= rows-4; i++ {
 		for j := 0; j < cols; j++ {
 			product := grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
@@ -35,7 +33,6 @@ func findGreatestProduct(grid [][]int) int {
 		}
 	}
 
-	// Check diagonally (top-left to bottom-right)
 	for i := 0; i <= rows-4; i++ {
 		for j := 0; j <= cols-4; j++ {
 			product := grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
@@ -43,7 +40,6 @@ func findGreatestProduct(grid [][]int) int {
 		}
 	}
 
-	// Check diagonally (bottom-left to top-right)
 	for i := 3; i < rows; i++ {
 		for j := 0; j <= cols-4; j++ {
 			product := grid[i][j] * grid[i-1][j+1] * grid[i-2][j+2] * grid[i-3][j+3]
